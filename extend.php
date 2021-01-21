@@ -1,14 +1,14 @@
 <?php
 
-/*
- * This file is part of Flarum.
- *
- * For detailed copyright and license information, please view the
- * LICENSE file that was distributed with this source code.
- */
+namespace App;
 
-use Flarum\Extend;
+// I do this so that it is obvious we are using Flarum native extenders
+use Flarum\Extend as Flarum;
 
 return [
-    // Register extenders here to customize your forum!
+    // Users that register require an email that ends
+    // with flarum.org
+    new User\EmailDomainsAllowed('@flarum.org')
+    // You can also use an array:
+    // new User\EmailDomainsAllowed(['@flarum.org', '@flarum.com']);
 ];
