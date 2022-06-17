@@ -14,6 +14,6 @@ return [
     // new User\EmailDomainsAllowed(['@flarum.org', '@flarum.com'])
 
     (new Flarum\Event)
-        // Modify imgur url's to be prefixed, php 7.4 only
+        // Modify imgur url's to be prefixed, php 7.4+ only
         ->listen(Saving::class, fn(Saving $event) => str_replace('https://i.imgur.com', 'https://discuss.grapheneos.org/image-proxy/i.imgur.com', $event->post->content)),
 ];
