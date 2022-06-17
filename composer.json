@@ -8,40 +8,6 @@
     ],
     "homepage": "https://flarum.org/",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Franz Liedke",
-            "email": "franz@develophp.org"
-        },
-        {
-            "name": "Daniel Klabbers",
-            "email": "daniel@klabbers.email",
-            "homepage": "https://luceos.com"
-        },
-        {
-            "name": "David Sevilla Martin",
-            "email": "me+flarum@datitisev.me",
-            "homepage": "https://datitisev.me"
-        },
-        {
-            "name": "Clark Winkelmann",
-            "email": "clark.winkelmann@gmail.com",
-            "homepage": "https://clarkwinkelmann.com"
-        },
-        {
-            "name": "Matthew Kilgore",
-            "email": "matthew@kilgore.dev"
-        },
-        {
-            "name": "Alexander (Sasha) Skvortsov",
-            "email": "askvortsov@flarum.org"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/flarum/core/issues",
-        "source": "https://github.com/flarum/flarum",
-        "docs": "https://flarum.org/docs/"
-    },
     "autoload": {
         "psr-4": {
             "App\\": "app/"
