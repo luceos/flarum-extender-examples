@@ -11,6 +11,9 @@ use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
 
 return [
+    (new Flarum\Console)
+        ->command(Command\RenumberPostsCommand::class),
+
     // Users that register require an email that ends
     // with flarum.org
     new User\EmailDomainsAllowed('@flarum.org'),
