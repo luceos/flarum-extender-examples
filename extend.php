@@ -4,7 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Flarum\Discussion\Discussion;
-use Flarum\Extend as Flarum; // I do this so that it is obvious we are using Flarum native extenders
+use Flarum\Extend;
 use Flarum\Post\Event\Saving;
 use Flarum\User\User;
 use Illuminate\Support\Arr;
@@ -12,7 +12,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use s9e\TextFormatter\Configurator;
 
 return [
-    (new Flarum\Console)
+    (new Extend\Console)
         ->command(Command\RenumberPostsCommand::class),
 
     // Users that register require an email that ends
@@ -21,11 +21,11 @@ return [
     // You can also use an array:
     // new User\EmailDomainsAllowed(['@flarum.org', '@flarum.com'])
 
-    (new Flarum\Event)
+    (new Extend\Event)
         // Modify imgur url's to be prefixed, php 7.4+ only
         ->listen(Saving::class, fn(Saving $event) => str_replace('https://i.imgur.com', 'https://discuss.grapheneos.org/image-proxy/i.imgur.com', $event->post->content)),
 
-    (new Flarum\ThrottleApi())
+    (new Extend\ThrottleApi())
         ->set('limit-tag-interaction', function (ServerRequestInterface $request) {
             // The tag Id we want to apply throttling on.
             $specificTagId = 5;
