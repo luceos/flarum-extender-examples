@@ -71,8 +71,8 @@ return [
         }),
 
     // ALlow HTML iframes inside posts
-    (new Flarum\Formatter)
-        ->configure(function (Configurator $configurator) {
-            $configurator->HTMLEntities->allowElement('iframe');
-        })
+    (new Extend\Formatter)
+        ->configure(function (\s9e\TextFormatter\Configurator $configurator) {
+            $configurator->HTMLElements->allowUnsafeElement('iframe');
+        }),
 ];
