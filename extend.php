@@ -9,6 +9,7 @@ use Flarum\Post\Event\Saving;
 use Flarum\User\User;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
+use s9e\TextFormatter\Configurator;
 
 return [
     (new Flarum\Console)
@@ -67,5 +68,11 @@ return [
                 ->where('created_at', '>=', $after)
                 // if there are more than 0, we'll return true to throttle, or null to ignore this throttler
                 ->count() > 0 ? true : null;
+        }),
+
+    // ALlow HTML iframes inside posts
+    (new Flarum\Formatter)
+        ->configure(function (Configurator $configurator) {
+            $configurator->HTMLEntities->allowElement('iframe');
         })
 ];
