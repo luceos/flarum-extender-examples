@@ -13,7 +13,7 @@ return [
     (new Extend\Console)
         ->command(App\Command\RenumberPostsCommand::class),
     (new Extend\Console)
-        ->command(App\Command\RenumberPostsCommand::class),
+        ->command(App\Command\RecountPostsCommand::class),
 
     // Users that register require an email that ends
     // with flarum.org
