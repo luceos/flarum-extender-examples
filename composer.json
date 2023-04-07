@@ -14,12 +14,12 @@
         }
     },
     "require": {
-        "flarum/core": "^1.0",
         "flarum/approval": "^1.0",
         "flarum/bbcode": "^1.0",
+        "flarum/core": "^1.0",
         "flarum/emoji": "^1.0",
-        "flarum/lang-english": "^1.0",
         "flarum/flags": "^1.0",
+        "flarum/lang-english": "^1.0",
         "flarum/likes": "^1.0",
         "flarum/lock": "^1.0",
         "flarum/markdown": "^1.0",
@@ -30,7 +30,8 @@
         "flarum/sticky": "^1.0",
         "flarum/subscriptions": "^1.0",
         "flarum/suspend": "^1.0",
-        "flarum/tags": "^1.0"
+        "flarum/tags": "^1.0",
+        "symfony/var-dumper": "^6.2"
     },
     "config": {
         "preferred-install": "dist",

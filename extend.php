@@ -111,4 +111,7 @@ return [
         ->configure(function (\s9e\TextFormatter\Configurator $configurator) {
             $configurator->HTMLElements->allowUnsafeElement('iframe');
         }),
+
+    (new \App\User\ChangeHasher),
+
 ];
