@@ -114,4 +114,15 @@ return [
 
     (new \App\User\ChangeHasher),
 
+    (new Extend\Routes('forum'))
+        ->get('my-profile', 'my-profile', function (ServerRequestInterface $request) {
+            /** @var \Flarum\Http\UrlGenerator $url */
+            $url = resolve(\Flarum\Http\UrlGenerator::class);
+
+            if ($actor = \Flarum\Http\RequestUtil::getActor($request)) {
+                return new \Laminas\Diactoros\Response\RedirectResponse($url->to('forum')->route('user', ['username' => $actor->username]));
+            } else {
+                return new \Laminas\Diactoros\Response\EmptyResponse(404);
+            }
+        })
 ];
