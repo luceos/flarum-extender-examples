@@ -114,6 +114,18 @@ return [
     (new \App\User\ChangeHasher),
 
     (new Extend\Routes('forum'))
-        ->get('/my-profile', 'my-profile', \App\User\MyProfileRedirection::class)
+        ->get('/my-profile', 'my-profile', \App\User\MyProfileRedirection::class),
+
+    (new Extend\Event)
+        ->listen(\Flarum\Post\Event\Posted::class, function (\Flarum\Post\Event\Posted $event) {
+            // Check if we reached 2000 comments to a discussion and it isnt locked yet.
+            if ($event->post->discussion->comment_count > 2000
+                && !$event->post->discussion->is_locked) {
+                // Lock the discussion.
+                $event->post->discussion->is_locked = true;
+                // Save the discussion if any of its properties are modified.
+                $event->post->discussion->isDirty() && $event->post->discussion->save();
+            }
+        }),
 ];
 
